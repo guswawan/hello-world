@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
+import CardProduct from './CardProduct/CardProduct';
 import './Product.css';
-import CardProduct from '../CardProduct/CardProduct';
 
 class Product extends React.Component {
     state = {
@@ -16,12 +16,14 @@ class Product extends React.Component {
     render(){
         return(
             <Fragment>
+                 <p>Halaman Product</p>
+                <hr/>
                 <div className="header">
                     <div className="logo">
                         {/* <img src="https://www.etanee.id/img/content/img_logo_etanee_white.png"></img> */}
                     </div>
                     <div className="troley">
-                        <img src="https://etanee.id/img/icon/ic_cart_white.svg"></img>
+                        <img src="https://etanee.id/img/icon/ic_cart_white.svg" alt="trolylogo"></img>
                         <div className="count">{this.state.order}</div>
                     </div>
                 </div>

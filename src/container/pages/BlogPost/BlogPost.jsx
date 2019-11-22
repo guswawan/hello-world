@@ -1,7 +1,11 @@
+//libraries
 import React, { Fragment } from 'react';
-import './BlogPost.css'; 
-import Post from '../../component/Post/Post';
 import axios from 'axios';
+import Post from '../../../component/Post/Post';
+
+//style
+import './BlogPost.css'; 
+
 
 class BlogPost extends React.Component {
     state = {
@@ -13,21 +17,6 @@ class BlogPost extends React.Component {
             userId: 1
         },
         isUpdate: false
-    }
-
-    componentDidMount(){
-        // get pakai fetch
-        // fetch('https://jsonplaceholder.typicode.com/posts')
-        // .then(response => response.json())
-        // .then (json => console.log(json))
-        // .then(json => {
-        //     this.setState({
-        //         post: json
-        //     })
-        // })
-
-        // get pakai plugin axios
-        this.getPostAPI();
     }
 
     getPostAPI = () => {
@@ -112,11 +101,32 @@ class BlogPost extends React.Component {
         
     }
 
+    handleDetail = (id) => {
+        this.props.history.push(`detail-post/${id}`)
+    }
+
+
+    componentDidMount(){
+        // get pakai fetch
+        // fetch('https://jsonplaceholder.typicode.com/posts')
+        // .then(response => response.json())
+        // .then (json => console.log(json))
+        // .then(json => {
+        //     this.setState({
+        //         post: json
+        //     })
+        // })
+
+        // get pakai plugin axios
+        this.getPostAPI();
+    }
     
 
     render(){
         return (
             <Fragment>
+                <p>Halaman Blog Post</p>
+                <hr/>
                  <p className="section-title">Blog Post</p>
 
                  <div className="form-add-post">
@@ -131,7 +141,7 @@ class BlogPost extends React.Component {
 
                  {
                      this.state.post.map(post => {
-                        return <Post key={post.id} data={post} update={this.handleUpdate} remove={this.handleRemove}/>
+                        return <Post key={post.id} data={post} update={this.handleUpdate} remove={this.handleRemove} goDetail={this.handleDetail}/>
                      })
                  }
             </Fragment>
