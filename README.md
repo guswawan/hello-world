@@ -1,2 +1,2 @@
 # hello-world
-crud in react js with fake API
+crud in react with jsx integration fake API
